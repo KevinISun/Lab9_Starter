@@ -208,6 +208,7 @@
       }
 
       try {
+        TrackJS.track('Testing TrackJS!');
         throw new CustomError('This is a custom error!');
       } catch (err) {
         console.error('Caught a custom error:', err);
