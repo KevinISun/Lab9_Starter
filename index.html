@@ -83,7 +83,7 @@
       <button id="timer-btn">Start Timer</button>
       <button id="timerend-btn">End Timer</button>
       <button id="trace-btn">Console Trace</button>
-      <button id="global-error-btn">Trigger a Global Error</button>
+      <button id="TrackJS-btn">TrackJS</button>
     </section>
   </main>
 
@@ -92,13 +92,12 @@
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS && TrackJS.install({ 
-      token: "d5fd0bfc719b4c1a8784be7253426be4"
+      token: "d5fd0bfc719b4c1a8784be7253426be4",
+      application: "lab9",
       // for more configuration options, see https://docs.trackjs.com
     });
-  </script>
 
-
-  <script>
+    TrackJS.track('Testing TrackJS!');
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -186,8 +185,7 @@
       a();
     });
 
-    // "Trigger a Global Error" left for next step
-    document.getElementById('global-error-btn').addEventListener('click', () => {
+    document.getElementById('TrackJS-btn').addEventListener('click', () => {
       try {
         // Simulate a realistic error: try to access a property of a null DOM node
         let missingNode = document.getElementById('not-a-real-id');
